@@ -1,224 +1,220 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import {  FaGithub, FaInstagram, FaLinkedin, FaWhatsapp, FaYoutube } from "react-icons/fa";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaWhatsapp,
+  FaYoutube,
+} from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import axios from "axios";
 import Notification from "../lms/Notification";
 import Footer from "./Footer";
 
-const ContactUs = () => {
-    const [msg,setMsg]=useState("")
-  const [type,setType]=useState("success")
-   const [fullname,setFullname]=useState("") 
-   const [email,setEmail]=useState("") 
-   const [subject,setSubject]=useState("") 
-   const [message,setMessage]=useState("") 
+// ✅ Backend URL (use .env in production)
+const API_URL = "http://localhost:5000";
 
-   const handleSendMessage=async()=>{
-    
-    if(!fullname==="" || !email==="" ||!subject==="" || !message===""){
-      return(setMsg("Please Fill All The Fields!"),setType("info"))
+const ContactUs = () => {
+  const [msg, setMsg] = useState("");
+  const [type, setType] = useState("success");
+
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSendMessage = async () => {
+    // ✅ Correct validation
+    if (!fullname || !email || !subject || !message) {
+      setMsg("Please fill all the fields!");
+      setType("info");
+      return;
     }
-    setMsg("Your Message is Sending....")
-    setType("info")
+
+    setMsg("Your message is sending...");
+    setType("info");
+
     try {
-    const res =await axios.post("http://localhost:5000/web/data/data",{fullname,email,subject,message});
-    if(res.data.success){
-     setType("success")
-     setMsg(res.data.msg)
-      setFullname("")
-      setEmail("")
-      setSubject("")
-      setMessage("")
-    }
-     
+      const res = await axios.post(`${API_URL}/web/data/data`, {
+        fullname,
+        email,
+        subject,
+        message,
+      });
+
+      if (res.data.success) {
+        setType("success");
+        setMsg(res.data.msg || "Message sent successfully!");
+
+        // Clear form
+        setFullname("");
+        setEmail("");
+        setSubject("");
+        setMessage("");
+      } else {
+        setType("error");
+        setMsg("Failed to send message. Try again.");
+      }
     } catch (error) {
-       console.log(error.message)
+      console.error(error);
+      setType("error");
+      setMsg("Server error. Please try later.");
     }
-   }
+  };
+
   return (
     <>
-    <Header/>
-    <section className="bg-gray-50 text-gray-800">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <Header />
 
-        {/* HERO */}
-        <header className="text-center mb-20">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
-            Contact Us
-          </h1>
-          <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
-            Have a project idea, need technical training, or looking for a
-            reliable development partner? Get in touch with{" "}
-            <span className="font-semibold text-indigo-600">
-              DarshanTech Innovations
-            </span>
-            .
-          </p>
-        </header>
-
-        {/* CONTENT */}
-        <section className="grid md:grid-cols-2 gap-12 items-start">
-
-          {/* CONTACT INFO */}
-          <div className="bg-white rounded-2xl shadow-md p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Get In Touch
-            </h2>
-
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              We are always happy to discuss your ideas, business requirements,
-              or learning goals. Reach out to us and we’ll respond as soon as
-              possible.
+      <section className="bg-gray-50 text-gray-800">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          {/* HERO */}
+          <header className="text-center mb-20">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+              Contact Us
+            </h1>
+            <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
+              Have a project idea, need technical training, or looking for a
+              reliable development partner? Get in touch with{" "}
+              <span className="font-semibold text-indigo-600">
+                DarshanTech Innovations
+              </span>
+              .
             </p>
+          </header>
 
-            <ul className="space-y-4 text-gray-600">
-              <li>
-                <span className="font-semibold text-gray-900">Email:</span>{" "}
-                darshantechinnovations.official@gmail.com
-              </li>
-              <li>
-                <span className="font-semibold text-gray-900">Phone:</span>{" "}
-                +91 72042 21936
-              </li>
-              <li>
-                <span className="font-semibold text-gray-900">Location:</span>{" "}
-                India
-              </li>
-              <li>
-                <span className="font-semibold text-gray-900">Services:</span>{" "}
-                Technical Training, Software Development, Freelance Services
-              </li>
-            </ul>
+          {/* CONTENT */}
+          <section className="grid md:grid-cols-2 gap-12 items-start">
+            {/* CONTACT INFO */}
+            <div className="bg-white rounded-2xl shadow-md p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Get In Touch
+              </h2>
 
-            {/* SOCIALS */}
-            <div className="mt-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Connect With Us
-              </h3>
-              <div className="flex gap-4 justify-center">
-                <a
-                  href=""
-                  className="text-indigo-600 font-bold text-2xl hover:underline"
-                >
-                 <FaLinkedin/>
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-600 font-bold text-2xl hover:underline"
-                >
-               <FaGithub/>
-                </a>
-                <a
-                  href="#"
-                  className="text-pink-600 font-bold text-2xl hover:underline"
-                >
-                <FaYoutube/>
-                </a>
-                <a
-                  href="#"
-                  className="text-pink-600 font-bold text-2xl hover:underline"
-                >
-                <FaInstagram/>
-                </a>
-                <a
-                  href="tel://91+ 7204221936"
-                  className="text-green-600 font-bold text-2xl hover:underline"
-                >
-                <FaWhatsapp/>
-                </a>
-                <a
-                  href="mail://darshantechinnovations.official@gmail.com"
-                  className="text-black-600 font-bold text-2xl hover:underline"
-                >
-                <CiMail/>
-                </a>
+              <ul className="space-y-4 text-gray-600">
+                <li>
+                  <span className="font-semibold text-gray-900">Email:</span>{" "}
+                  darshantechinnovations.official@gmail.com
+                </li>
+                <li>
+                  <span className="font-semibold text-gray-900">Phone:</span>{" "}
+                  +91 72042 21936
+                </li>
+                <li>
+                  <span className="font-semibold text-gray-900">Location:</span>{" "}
+                  India
+                </li>
+              </ul>
+
+              {/* SOCIALS */}
+              <div className="mt-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  Connect With Us
+                </h3>
+                <div className="flex gap-4 justify-center">
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    className="text-indigo-600 text-2xl"
+                  >
+                    <FaLinkedin />
+                  </a>
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    className="text-gray-700 text-2xl"
+                  >
+                    <FaGithub />
+                  </a>
+                  <a
+                    href="https://youtube.com"
+                    target="_blank"
+                    className="text-red-600 text-2xl"
+                  >
+                    <FaYoutube />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    className="text-pink-600 text-2xl"
+                  >
+                    <FaInstagram />
+                  </a>
+                  <a
+                    href="tel:+917204221936"
+                    className="text-green-600 text-2xl"
+                  >
+                    <FaWhatsapp />
+                  </a>
+                  <a
+                    href="mailto:darshantechinnovations.official@gmail.com"
+                    className="text-gray-800 text-2xl"
+                  >
+                    <CiMail />
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* CONTACT FORM */}
-          <div className="bg-white rounded-2xl shadow-md p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Send Us a Message
-            </h2>
+            {/* CONTACT FORM */}
+            <div className="bg-white rounded-2xl shadow-md p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Send Us a Message
+              </h2>
 
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Full Name
-                </label>
+              <div className="space-y-6">
                 <input
-                  type="text"  value={fullname } onChange={(e)=>setFullname(e.target.value)}
-                  placeholder="Enter your full name"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Email Address
-                </label>
-                <input value={email} onChange={(e)=>setEmail(e.target.value)}
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Subject
-                </label>
-                <input value={subject}  onChange={(e)=>setSubject(e.target.value)}
                   type="text"
+                  value={fullname}
+                  onChange={(e) => setFullname(e.target.value)}
+                  placeholder="Full Name"
+                  className="w-full border rounded-lg px-4 py-3"
+                />
+
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email"
+                  className="w-full border rounded-lg px-4 py-3"
+                />
+
+                <input
+                  type="text"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
                   placeholder="Subject"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full border rounded-lg px-4 py-3"
+                />
+
+                <textarea
+                  rows="5"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Message"
+                  className="w-full border rounded-lg px-4 py-3"
+                />
+
+                <button
+                  onClick={handleSendMessage}
+                  className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700"
+                >
+                  Send Message
+                </button>
+
+                <Notification
+                  message={msg}
+                  type={type}
+                  onClose={() => setMsg("")}
                 />
               </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
-                </label>
-                <textarea value={message} onChange={(e)=>setMessage(e.target.value)}
-                  rows="5"
-                  placeholder="Write your message here..."
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                ></textarea>
-              </div>
-
-              <button onClick={handleSendMessage}
-                type="submit"
-                className="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition"
-              >
-                Send Message
-              </button>
-               <Notification
-  message={msg}
-  type={type}
-  onClose={() => setMsg("")}
-/>
-  
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
+      </section>
 
-        {/* CTA */}
-        <footer className="mt-20 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Let’s Start Something Great
-          </h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
-            Whether you are a student, entrepreneur, or business owner,
-            DarshanTech Innovations is ready to support your journey with
-            technology and expertise.
-          </p>
-        </footer>
-
-      </div>
-    </section>
-    <Footer/>
+      <Footer />
     </>
   );
 };

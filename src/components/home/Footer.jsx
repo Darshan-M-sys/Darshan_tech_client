@@ -9,8 +9,7 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt 
 } from "react-icons/fa";
-import { CiMail } from "react-icons/ci";
-import Notification from '../lms/Notification';
+
 
 const Footer = () => {
 
