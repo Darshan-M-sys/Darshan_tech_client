@@ -10,6 +10,7 @@ import TeacherQuiz from "./TeacherQuiz";
 import { MdDelete } from "react-icons/md";
 
 const Courses = () => {
+       const API_URL="https://darshantechinnvations.shop";
   const [courses, setCourses] = useState([]);
   const [menu, setMenu] = useState(false);
   const [activeTab, setActiveTab] = useState("Course");
@@ -34,7 +35,7 @@ const Courses = () => {
   /* ================= FETCH COURSES ================= */
   const handleCourseData = async () => {
     const res = await axios.get(
-      "http://localhost:5000/course/teacher/courses",
+      `${API_URL}/course/teacher/courses`,
       { withCredentials: true }
     );
     setCourses(res.data.data || []);
@@ -44,7 +45,7 @@ const Courses = () => {
   const handleSingleCourse = async (courseId) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/course/${courseId}`
+        `${API_URL}/course/${courseId}`
       );
       setCourseDetails(res.data.data || {});
     } catch (error) {
@@ -83,7 +84,7 @@ const Courses = () => {
       if (file) formData.append("image", file);
 
       const res = await axios.post(
-        "http://localhost:5000/course/create",
+        `${API_URL}/course/create`,
         formData,
         { withCredentials: true }
       );
@@ -109,7 +110,7 @@ const Courses = () => {
       if (file) formData.append("image", file);
 
       const res = await axios.put(
-        `http://localhost:5000/course/update/${id}`,
+        `${API_URL}/course/update/${id}`,
         formData,
         { withCredentials: true }
       );
@@ -149,7 +150,7 @@ const Courses = () => {
    const handleCourseDelete=async()=>{
     try {
       if(!window.confirm("Are You Sure to delete this item")) return;
-      await axios.delete(`http://localhost:5000/course/delete/${id}`,{withCredentials:true})
+      await axios.delete(`${API_URL}/course/delete/${id}`,{withCredentials:true})
       window.location.reload()
     } catch (error) {
       console.log(error)

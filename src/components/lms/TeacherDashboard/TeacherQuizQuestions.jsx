@@ -14,12 +14,12 @@ const TeacherQuizQuestions = ({ quizId }) => {
     correctAnswer: 0,
     marks: 1
   });
-
+     const API_URL="https://darshantechinnvations.shop";
   /* ================= FETCH QUESTIONS ================= */
   const fetchQuestions = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/quiz/${quizId}/question`,
+        `${API_URL}/quiz/${quizId}/question`,
         { withCredentials: true }
       );
       setQuestions(res.data.data || []);
@@ -68,7 +68,7 @@ const TeacherQuizQuestions = ({ quizId }) => {
       setLoading(true);
 
       await axios.post(
-        `http://localhost:5000/quiz/${quizId}/question/add`,
+        `${API_URL}/quiz/${quizId}/question/add`,
         form,
         { withCredentials: true }
       );
@@ -102,7 +102,7 @@ const TeacherQuizQuestions = ({ quizId }) => {
       setLoading(true);
 
       await axios.put(
-        `http://localhost:5000/quiz/question/update/${editId}`,
+        `${API_URL}/quiz/question/update/${editId}`,
         form,
         { withCredentials: true }
       );
@@ -123,7 +123,7 @@ const TeacherQuizQuestions = ({ quizId }) => {
 
     try {
       await axios.delete(
-        `http://localhost:5000/quiz/question/delete/${id}`,
+        `${API_URL}/quiz/question/delete/${id}`,
         { withCredentials: true }
       );
       fetchQuestions();

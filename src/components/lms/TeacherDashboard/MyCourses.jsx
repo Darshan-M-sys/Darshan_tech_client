@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 const MyCourses = ({ courses }) => {
 
  const [course,setCourse]=useState(courses)
+      const API_URL="https://darshantechinnvations.shop";
 const handleMyCourseStudent = async () => {
   try {
     const updatedCourses = await Promise.all(
       course.map(async (item) => {
         const res = await axios.get(
-          `http://localhost:5000/teacher/dashboard/courses/students/${item._id}`,
+          `${API_URL}/teacher/dashboard/courses/students/${item._id}`,
           { withCredentials: true }
       
         );

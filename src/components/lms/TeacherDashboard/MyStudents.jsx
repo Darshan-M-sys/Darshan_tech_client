@@ -10,7 +10,7 @@ const MyStudents = ({ courses }) => {
       setCourseList(courses);
     }
   }, [courses]);
-
+     const API_URL="https://darshantechinnvations.shop";
   // 2️⃣ Fetch students AFTER courses are set
   useEffect(() => {
     if (courseList.length === 0) return;
@@ -20,7 +20,7 @@ const MyStudents = ({ courses }) => {
         const updated = await Promise.all(
           courseList.map(async (course) => {
             const res = await axios.get(
-              `http://localhost:5000/teacher/dashboard/courses/students/${course._id}`,
+              `${API_URL}/teacher/dashboard/courses/students/${course._id}`,
               { withCredentials: true }
             );
 

@@ -10,12 +10,12 @@ const Notes = ({ id }) => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [notes, setNotes] = useState([]);
-
+     const API_URL="https://darshantechinnvations.shop";
   // ✅ Fetch notes
   const handleGetNotes = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/notes/${id}`,
+        `${API_URL}/notes/${id}`,
         { withCredentials: true }
       );
       setNotes(res.data.data || []);
@@ -58,7 +58,7 @@ const Notes = ({ id }) => {
       formData.append("pdf", pdfFile);
 
       await axios.post(
-        `http://localhost:5000/notes/upload/notes/${id}`,
+        `${API_URL}/notes/upload/notes/${id}`,
         formData,
         { withCredentials: true }
       );
@@ -78,7 +78,7 @@ const Notes = ({ id }) => {
   const handleDeleteNotes= async(notesId)=>{
     try {
       if(!window.confirm("Are you sure to delete this Item")) return;
-       await axios.delete(`http://localhost:5000/notes/delete/${notesId}`,{withCredentials:true})
+       await axios.delete(`${API_URL}/notes/delete/${notesId}`,{withCredentials:true})
       handleGetNotes()
     } catch (error) {
       console.log(error)

@@ -20,10 +20,11 @@ const Lessons = ({ id }) => {
   });
 
   /* ================= FETCH ALL LESSONS ================= */
+       const API_URL="https://darshantechinnvations.shop";
   const fetchLessons = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/lesson/teacher/${id}`,
+        `${API_URL}/lesson/teacher/${id}`,
         { withCredentials: true }
       );
       setLessonList(res.data.data || []);
@@ -39,7 +40,7 @@ const Lessons = ({ id }) => {
   const fetchSingleLesson = async (lessonId) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/lesson/teacher/lesson/${lessonId}`,
+        `${API_URL}/lesson/teacher/lesson/${lessonId}`,
         { withCredentials: true }
       );
       setSelectedLesson(res.data.data);
@@ -60,7 +61,7 @@ const Lessons = ({ id }) => {
   const handleCreate = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/lesson/create/${id}`,
+        `${API_URL}/lesson/create/${id}`,
         formData,
         { withCredentials: true }
       );
@@ -77,7 +78,7 @@ const Lessons = ({ id }) => {
   const handleUpdate = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/lesson/update/${selectedLessonId}`,
+        `${API_URL}/lesson/update/${selectedLessonId}`,
         formData,
         { withCredentials: true }
       );
@@ -96,7 +97,7 @@ const Lessons = ({ id }) => {
     if (!window.confirm("Are you sure?")) return;
     try {
       await axios.delete(
-        `http://localhost:5000/lesson/delete/${lessonId}`,
+        `${API_URL}/lesson/delete/${lessonId}`,
         { withCredentials: true }
       );
       fetchLessons();

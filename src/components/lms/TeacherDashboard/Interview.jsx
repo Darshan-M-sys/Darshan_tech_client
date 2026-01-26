@@ -10,12 +10,12 @@ const Interview = ({ id }) => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [interviews, setInterviews] = useState([]);
-
+     const API_URL="https://darshantechinnvations.shop";
   // ✅ Fetch Interview PDFs
   const fetchInterviews = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/interview/${id}`,
+        `${API_URL}/interview/${id}`,
         { withCredentials: true }
       );
       setInterviews(res.data.data || []);
@@ -57,7 +57,7 @@ const Interview = ({ id }) => {
       formData.append("pdf", pdfFile);
 
       await axios.post(
-        `http://localhost:5000/interview/upload/interview/${id}`, // ✅ FIXED
+        `${API_URL}/interview/upload/interview/${id}`, // ✅ FIXED
         formData,
         { withCredentials: true }
       );
@@ -80,7 +80,7 @@ const Interview = ({ id }) => {
       if (!window.confirm("Are you sure you want to delete this interview PDF?")) return;
 
       await axios.delete(
-        `http://localhost:5000/interview/delete/${interviewId}`,
+        `${API_URL}/interview/delete/${interviewId}`,
         { withCredentials: true }
       );
 

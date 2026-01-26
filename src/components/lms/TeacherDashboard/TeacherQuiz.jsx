@@ -16,12 +16,12 @@ const TeacherQuiz = ({ courseId }) => {
     timeLimit: "",
     passingMarks: ""
   });
-
+     const API_URL="https://darshantechinnvations.shop";
   /* ================= FETCH QUIZZES ================= */
   const fetchQuizzes = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/quiz/${courseId}`,
+        `${API_URL}/quiz/${courseId}`,
         { withCredentials: true }
       );
       setQuizzes(res.data.data || []);
@@ -64,7 +64,7 @@ const TeacherQuiz = ({ courseId }) => {
       setLoading(true);
 
       await axios.post(
-        `http://localhost:5000/quiz/create/${courseId}`,
+        `${API_URL}/quiz/create/${courseId}`,
         form,
         { withCredentials: true }
       );
@@ -83,7 +83,7 @@ const TeacherQuiz = ({ courseId }) => {
   const handleEdit = async (quizId) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/quiz/single/${quizId}`,
+        `${API_URL}/quiz/single/${quizId}`,
         { withCredentials: true }
       );
 
@@ -109,7 +109,7 @@ const TeacherQuiz = ({ courseId }) => {
       setLoading(true);
 
       await axios.put(
-        `http://localhost:5000/quiz/update/${editQuizId}`,
+        `${API_URL}/quiz/update/${editQuizId}`,
         form,
         { withCredentials: true }
       );
@@ -128,7 +128,7 @@ const TeacherQuiz = ({ courseId }) => {
   const handleDeleteQuiz=async( deleteId)=>{
     try {
       if(!window.confirm("Are you sure to delete this")) return;
-       await axios.delete(`http://localhost:5000/quiz/delete/${deleteId}`,{withCredentials:true})
+       await axios.delete(`${API_URL}/quiz/delete/${deleteId}`,{withCredentials:true})
        fetchQuizzes()
     } catch (error) {
       console.log(error)

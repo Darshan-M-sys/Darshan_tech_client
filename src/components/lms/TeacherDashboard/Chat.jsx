@@ -7,12 +7,13 @@ import { io } from "socket.io-client";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 
-const socket = io("http://localhost:5000", {
+const socket = io("https://darshantechinnvations.shop", {
   withCredentials: true,
   transports: ["websocket"],
 });
 
 const Chat = ({ id }) => {
+       const API_URL="https://darshantechinnvations.shop";
   const [groupData, setGroupData] = useState(null);
   const [msg, setMsg] = useState([]);
   const [profileData, setProfileData] = useState({});
@@ -37,7 +38,7 @@ const Chat = ({ id }) => {
   /* ================= PROFILE ================= */
   useEffect(() => {
     axios
-      .get("http://localhost:5000/user/profile", { withCredentials: true })
+      .get(` ${API_URL}/user/profile` , { withCredentials: true })
       .then((res) => setProfileData(res.data.data || {}));
   }, []);
 
@@ -46,7 +47,7 @@ const Chat = ({ id }) => {
     if (!id) return;
 
     axios
-      .get(`http://localhost:5000/group/chat/${id}`, { withCredentials: true })
+      .get(`${API_URL}/group/chat/${id}`, { withCredentials: true })
       .then((res) => setGroupData(res.data.data));
   }, [id]);
 
@@ -55,7 +56,7 @@ const Chat = ({ id }) => {
     if (!groupData?._id) return;
 
     axios
-      .get(`http://localhost:5000/message/${groupData._id}`, { withCredentials: true })
+      .get(`${API_URL}/message/${groupData._id}`, { withCredentials: true })
       .then((res) => setMsg(res.data.data || []));
 
     socket.emit("joinGroup", groupData._id);
@@ -99,7 +100,7 @@ const Chat = ({ id }) => {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await axios.post("http://localhost:5000/upload/upload", formData, {
+    const res = await axios.post(`${API_URL}/upload/upload`, formData, {
       withCredentials: true,
       onUploadProgress: (e) => {
         setProgress(Math.round((e.loaded * 100) / e.total));
@@ -143,7 +144,7 @@ const Chat = ({ id }) => {
   const handleDelete = async (messageId) => {
     if (!window.confirm("Delete this message?")) return;
 
-    await axios.delete(`http://localhost:5000/message/teacher/${messageId}`, { withCredentials: true });
+    await axios.delete(`${API_URL}/message/teacher/${messageId}`, { withCredentials: true });
 
     socket.emit("deleteMessage", { messageId, groupId: groupData._id });
   };
@@ -162,7 +163,7 @@ const Chat = ({ id }) => {
       data.append("groupType", formData.groupType);
       if (groupImage) data.append("image", groupImage);
 
-      const res = await axios.post(`http://localhost:5000/group/chat/create/${id}`, data, { withCredentials: true });
+      const res = await axios.post(`${API_URL}/group/chat/create/${id}`, data, { withCredentials: true });
 
       if (res.data.success) {
         alert(res.data.msg);
@@ -171,7 +172,7 @@ const Chat = ({ id }) => {
         setGroupImage(null);
 
         // refresh group data after creation
-        axios.get(`http://localhost:5000/group/chat/${id}`, { withCredentials: true })
+        axios.get(`${API_URL}/group/chat/${id}`, { withCredentials: true })
           .then((res) => setGroupData(res.data.data));
       }
     } catch (error) {

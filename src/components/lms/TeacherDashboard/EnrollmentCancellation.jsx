@@ -3,7 +3,7 @@ import React from "react";
 import { MdDelete } from "react-icons/md";
 
 const EnrollmentCancellation = ({ students = [] }) => {
- 
+ const API_URL="https://darshantechinnvations.shop";
 
   if (!students.length) {
     return (
@@ -17,7 +17,7 @@ const EnrollmentCancellation = ({ students = [] }) => {
   const handleDeleteEnrollment= async(enrollmentId)=>{
 try {
   if(!window.confirm("Are you sure to cancel this enrollment?")) return;
-   await axios.delete(`http://localhost:5000/teacher/dashboard/enrollment/delete/${enrollmentId}`,{withCredentials:true});
+   await axios.delete(`${API_URL}/teacher/dashboard/enrollment/delete/${enrollmentId}`,{withCredentials:true});
    alert("!Enrollment Is Canceled")
 } catch (error) {
   console.log(error)
