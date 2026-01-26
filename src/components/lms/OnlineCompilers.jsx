@@ -39,9 +39,9 @@ const OnlineCompiler = () => {
   const runCode = async () => {
     setLoading(true);
     setOutput("");
-
+     const API_URL="https://darshantechinnvations.shop";
     try {
-      const res = await axios.post("http://localhost:5000/run", {
+      const res = await axios.post(`${API_URL}/run`, {
         source_code: code,
         language: language,
       });

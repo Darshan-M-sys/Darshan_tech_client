@@ -7,22 +7,22 @@ import { Link } from "react-router-dom";
 =()=> {
   const [time, setTime] = useState("");
   const [status, setStatus] = useState("");
-
+     const API_URL="https://darshantechinnvations.shop";
   const schedule = async () => {
-    await axios.post("http://localhost:5000/live/schedule", { scheduledTime: time },{withCredentials:true});
+    await axios.post(`${API_URL}/live/schedule`, { scheduledTime: time },{withCredentials:true});
     alert("Live Scheduled");
   };
   const start = async () => {
-    await axios.post("http://localhost:5000/live/start");
+    await axios.post(`${API_URL}/live/start`);
     setStatus("LIVE");
   };
   const stop = async () => {
-    await axios.post("http://localhost:5000/live/stop");
+    await axios.post(`${API_URL}/live/stop`);
     setStatus("STOPPED");
   };
   useEffect(() => {
     const load = async () => {
-      const res = await axios.get("http://localhost:5000/live/status");
+      const res = await axios.get(`${API_URL}/live/status`);
       setStatus(res.data.isLive ? "LIVE" : "OFFLINE");
     };
     load();
@@ -42,7 +42,7 @@ import { Link } from "react-router-dom";
   const saveLiveInfo = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/live/live-info",
+        `${API_URL}/live/live-info`,
         form,
         { withCredentials: true }
       );
@@ -56,7 +56,7 @@ import { Link } from "react-router-dom";
     
     const handleAuth=async()=>{
       try{
-      const login= await axios.get("http://localhost:5000/user/login",{withCredentials:true});
+      const login= await axios.get(`${API_URL}/user/login`,{withCredentials:true});
       setAuthData(login.data.data|| {})
       }catch(err){
         console.log(err)

@@ -11,9 +11,9 @@ import { IoClose } from "react-icons/io5";
 import { io } from "socket.io-client";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
-
+ const API_URL="https://darshantechinnvations.shop";
 /* ================= SOCKET ================= */
-const socket = io("http://localhost:5000", {
+const socket = io(API_URL, {
   withCredentials: true,
   transports: ["websocket"],
 });
@@ -48,7 +48,7 @@ const ChatContent = ({ id }) => {
   /* ================= PROFILE ================= */
   useEffect(() => {
     axios
-      .get("http://localhost:5000/user/profile", {
+      .get(`${API_URL}/user/profile`, {
         withCredentials: true,
       })
       .then((res) => setProfileData(res.data.data || {}));
@@ -59,7 +59,7 @@ const ChatContent = ({ id }) => {
     if (!id) return;
 
     axios
-      .get(`http://localhost:5000/group/chat/${id}`, {
+      .get(`${API_URL}/group/chat/${id}`, {
         withCredentials: true,
       })
       .then((res) => setGroupData(res.data.data));
@@ -70,7 +70,7 @@ const ChatContent = ({ id }) => {
     if (!groupData?._id) return;
 
     axios
-      .get(`http://localhost:5000/message/${groupData._id}`, {
+      .get(`${API_URL}/message/${groupData._id}`, {
         withCredentials: true,
       })
       .then((res) => setMsg(res.data.data || []));
@@ -123,7 +123,7 @@ const ChatContent = ({ id }) => {
     formData.append("file", file);
 
     const res = await axios.post(
-      "http://localhost:5000/upload/upload",
+      `${API_URL}/upload/upload`,
       formData,
       {
         withCredentials: true,
@@ -173,7 +173,7 @@ const ChatContent = ({ id }) => {
     if (!window.confirm("Delete this message?")) return;
 
     await axios.delete(
-      `http://localhost:5000/message/${messageId}`,
+      `${API_URL}/message/${messageId}`,
       { withCredentials: true }
     );
 

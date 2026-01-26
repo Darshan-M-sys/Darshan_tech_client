@@ -18,7 +18,7 @@ const TeacherRegistration = () => {
       if(email==="" || username==="" || password===""){
         return (setType("info") , setMsg("all files require"))
       }
-      const teacherRegistration= await axios.post("http://localhost:5000/user/teacher_registration",{username,email,password},{withCredentials:true})
+      const teacherRegistration= await axios.post(`${API_URL}/user/teacher_registration`,{username,email,password},{withCredentials:true})
        setMsg(teacherRegistration.data.msg);
        setType(teacherRegistration.data.type)
        if(type==="success"){

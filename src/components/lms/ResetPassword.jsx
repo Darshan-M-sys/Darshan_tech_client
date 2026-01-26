@@ -24,13 +24,13 @@ useEffect(()=>{
   return ()=>clearTimeout(setTime)
    }
 },[type,navigate])
-
+const API_URL="https://darshantechinnvations.shop";
 const handleResetPassword=async()=>{
     try {
       if(!(password1===password2)){
            return (setType("info"),setMsg("Please Confirm the password"))
          }
-const data = await axios.post("http://localhost:5000/user/reset_password",{email:state.email,otp:state.otp,password:password1})   
+const data = await axios.post(`${API_URL}/user/reset_password`,{email:state.email,otp:state.otp,password:password1})   
      
           setType(data.data.type)
           setMsg(data.data.msg)

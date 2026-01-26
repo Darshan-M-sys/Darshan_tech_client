@@ -8,9 +8,10 @@ const NotesContent = ({ id}) => {
   const [error, setError] = useState("");
 
   const fetchNotes = async () => {
+     const API_URL="https://darshantechinnvations.shop";
     try {
       const res = await axios.get(
-        `http://localhost:5000/notes/${id}`,
+        `${API_URL}/notes/${id}`,
         { withCredentials: true }
       );
       setNotes(res.data.data || []);

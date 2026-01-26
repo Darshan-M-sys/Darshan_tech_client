@@ -8,11 +8,11 @@ import { Helmet } from "react-helmet";
 const Profile = () => {
   const [profileData, setProfileData] = useState({});
   const [loading, setLoading] = useState(true);
-
+     const API_URL="https://darshantechinnvations.shop";
   const handleProfileData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/user/profile",
+        `${API_URL}/user/profile`,
         { withCredentials: true }
       );
       setProfileData(res.data.data || {});

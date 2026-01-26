@@ -13,7 +13,7 @@ import Notification from "../lms/Notification";
 import Footer from "./Footer";
 
 // ✅ Backend URL (use .env in production)
-const API_URL = "http://localhost:5000";
+ const API_URL="https://darshantechinnvations.shop";
 
 const ContactUs = () => {
   const [msg, setMsg] = useState("");

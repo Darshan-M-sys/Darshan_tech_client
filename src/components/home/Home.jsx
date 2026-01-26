@@ -3,18 +3,16 @@ import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
 import {
-  FaFacebookF,
+
   FaInstagram,
-  FaLinkedinIn,
   FaGithub,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaMapMarkerAlt ,FaLinkedin, FaWhatsapp, FaYoutube
+  FaLinkedin, FaWhatsapp, FaYoutube
 } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import Notification from '../lms/Notification';
 import axios from 'axios';
 const Home = () => {
+   const API_URL="https://darshantechinnvations.shop";
     const [msg,setMsg]=useState("")
     const [type,setType]=useState("success")
      const [fullname,setFullname]=useState("") 
@@ -30,7 +28,7 @@ const Home = () => {
       setMsg("Your Message is Sending....")
       setType("info")
       try {
-      const res =await axios.post("http://localhost:5000/web/data/data",{fullname,email,subject,message});
+      const res =await axios.post(`${API_URL}/web/data/data `,{fullname,email,subject,message});
       if(res.data.success){
        setType("success")
        setMsg(res.data.msg)

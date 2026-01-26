@@ -10,12 +10,13 @@ const QuizContent = ({ courseId }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
-
+     const API_URL="https://darshantechinnvations.shop";
   /* ================= FETCH QUIZZES ================= */
   const fetchQuizzes = async () => {
+
     try {
       const res = await axios.get(
-        `http://localhost:5000/quiz/${courseId}`,
+        `${API_URL}/quiz/${courseId}`,
         { withCredentials: true }
       );
 
@@ -48,12 +49,12 @@ const QuizContent = ({ courseId }) => {
       setLoading(true);
 
       const qRes = await axios.get(
-        `http://localhost:5000/quiz/${quiz._id}/question`,
+        `${API_URL}/quiz/${quiz._id}/question`,
         { withCredentials: true }
       );
 
       await axios.post(
-        "http://localhost:5000/quiz/attempt/start",
+        `${API_URL}/quiz/attempt/start`,
         { quizId: quiz._id },
         { withCredentials: true }
       );
@@ -89,7 +90,7 @@ const QuizContent = ({ courseId }) => {
       setLoading(true);
 
       const res = await axios.post(
-        `http://localhost:5000/quiz/submit/${activeQuiz._id}`,
+        `${API_URL}/quiz/submit/${activeQuiz._id}`,
         { answers },
         { withCredentials: true }
       );

@@ -53,10 +53,10 @@ const OtpInput = ({ length = 6, onComplete }) => {
   };
 
  const {state}=useLocation()
-
+     const API_URL="https://darshantechinnvations.shop";
     const handleForgetPassword=async()=>{
       try {
-       const data= await axios.post("http://localhost:5000/user/forget_password",{email:state});
+       const data= await axios.post(`${API_URL}/user/forget_password`,{email:state});
        setMsg(data.data.msg)
        setType(data.data.type)
       } catch (error) {
@@ -89,7 +89,7 @@ const handlePasswordVerification=async()=>{
   if(!otp.length>5){
     return setResponse("Enter 6 digit otp")
   }
-const data = await axios.post("http://localhost:5000/user/verify-otp",{email:state,otp:otp.join("")});
+const data = await axios.post(`${API_URL}/user/verify-otp`,{email:state,otp:otp.join("")});
     setMsg(data.data.msg)
     setType(data.data.type)
     setSuccess(data.data.success);

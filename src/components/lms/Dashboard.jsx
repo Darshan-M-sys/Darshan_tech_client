@@ -11,11 +11,11 @@ const Dashboard = () => {
   const nav = useNavigate();
   const [authData, setAuthData] = useState({});
   const [loading, setLoading] = useState(true);
-
+  const API_URL="https://darshantechinnvations.shop";
   const handleAuth = async () => {
     try {
       const login = await axios.get(
-        "http://localhost:5000/user/login",
+        `${API_URL}/user/login`,
         { withCredentials: true }
       );
       setAuthData(login.data.data || {});

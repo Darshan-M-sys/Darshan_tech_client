@@ -12,7 +12,7 @@ export default function StudentLive() {
   const name = localStorage.getItem("liveName");
 
   const [ready, setReady] = useState(false);
-
+  const API_URL="https://darshantechinnvations.shop";
   // 🔒 Permission check ONCE
   useEffect(() => {
     if (!email) {
@@ -23,7 +23,7 @@ export default function StudentLive() {
     const check = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:5000/live/user/can-join",
+          `${API_URL}/live/user/can-join`,
           { email }
         );
 
@@ -46,7 +46,7 @@ export default function StudentLive() {
     if (!ready) return;
 
     const interval = setInterval(async () => {
-      const res = await axios.get("http://localhost:5000/live/status");
+      const res = await axios.get(`${API_URL}/live/status`);
 
       if (!res.data.isLive) {
         window.location.href = "/waiting";

@@ -6,11 +6,11 @@ const InterviewContent = ({id}) => {
   const [interviews, setInterviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+ const API_URL="https://darshantechinnvations.shop";
   const fetchInterviews = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/interview/${id}`,
+        `${API_URL}/${id}`,
         { withCredentials: true }
       );
       setInterviews(res.data.data || []);

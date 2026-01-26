@@ -8,10 +8,10 @@ export default function LiveRegister() {
   const [liveInfo, setLiveInfo] = useState({});
 
   const nav = useNavigate();
-
+  const API_URL="https://darshantechinnvations.shop";
   const fetchLiveInfo = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/live/live-info");
+      const res = await axios.get(`${API_URL}/live/live-info`);
       setLiveInfo(res.data.data);
     } catch (err) {
       console.error(err);
@@ -25,7 +25,7 @@ export default function LiveRegister() {
   const register = async () => {
     if (!name || !email) return alert("All fields required");
 
-    await axios.post("http://localhost:5000/live/user/register", {
+    await axios.post(`${API_URL}/live/user/register`, {
       name,
       email
     });

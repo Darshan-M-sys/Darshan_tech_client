@@ -31,7 +31,7 @@ const navigate = useNavigate();
     
    }
 },[type])
-
+const API_URL="https://darshantechinnvations.shop";
 const handleRegister = async () => {
 
   if(username==="" || email==="" || password1===""){
@@ -39,7 +39,7 @@ const handleRegister = async () => {
   }
   try {
     const res = await axios.post(
-      "http://localhost:5000/user/register",
+      `${API_URL}/user/register`,
       {
         username,
         email,

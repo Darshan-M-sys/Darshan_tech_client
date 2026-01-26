@@ -20,7 +20,7 @@ const AboutUs = () => {
         <meta property="og:title" content="About Us | DarshanTech Innovations" />
         <meta property="og:description" content="Learn about our vision, mission, and the services we offer for learners and businesses." />
         <meta property="og:image" content={darshantech} />
-        <meta property="og:url" content="https://www.darshantechinnovations.com/about" />
+        <meta property="og:url" content="https://www.darshantechinnovations.tech/about" />
       </Helmet>
 
   
@@ -31,7 +31,7 @@ const AboutUs = () => {
     "@context": "https://schema.org",
       "@type": "Organization",
       "name": "DarshanTech Innovations",
-      "url": "https://www.darshantechinnovations.com",
+      "url": "https://www.darshantechinnovations.tech",
       "logo": "https://comparative-jade-vqiucb0iyi.edgeone.app/darshantech%20innovations.jpeg",
       "founder": {
         "@type": "Person",

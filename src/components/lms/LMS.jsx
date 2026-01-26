@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import Home from "./Home";
 
 const LMS = () => {
+  
   return (
     <>
       <Helmet>
@@ -19,7 +20,7 @@ const LMS = () => {
         <meta name="author" content="Darshan M" />
         <link
           rel="canonical"
-          href="https://www.darshantechinnovations.com/training"
+          href="https://www.darshantechinnovations.tech/training"
         />
 
         {/* OPEN GRAPH */}
@@ -34,7 +35,7 @@ const LMS = () => {
         />
         <meta
           property="og:url"
-          content="https://www.darshantechinnovations.com/training"
+          content="https://www.darshantechinnovations.tech/training"
         />
         <meta property="og:type" content="website" />
 
@@ -50,7 +51,7 @@ const LMS = () => {
             "provider": {
               "@type": "Organization",
               "name": "DarshanTech Innovations",
-              "url": "https://www.darshantechinnovations.com",
+              "url": "https://www.darshantechinnovations.tech",
               "founder": {
                 "@type": "Person",
                 "name": "Darshan M"

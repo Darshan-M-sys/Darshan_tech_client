@@ -2,13 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Overview = () => {
-
+  const API_URL="https://darshantechinnvations.shop"
 const [userCount,setUserCount]=useState(0);
 const [enrollmentsCount,setEnrollmentsCount]=useState(0);
 const [coursesCount,setCoursesCount]=useState(0);
 const handleUserCount=async()=>{
   try {
-   const res= await axios.get("http://localhost:5000/admin/users",{withCredentials:true}) ;
+   const res= await axios.get(`${API_URL}/admin/users`,{withCredentials:true}) ;
    setUserCount(res.data.length)
   } catch (error) {
     console.log(error)
@@ -16,7 +16,7 @@ const handleUserCount=async()=>{
 }
 const handleCourseCount=async()=>{
   try {
-   const res= await axios.get("http://localhost:5000/admin/courses",{withCredentials:true}) ;
+   const res= await axios.get(`${API_URL}/admin/courses`,{withCredentials:true}) ;
    setCoursesCount(res.data.length)
   } catch (error) {
     console.log(error)
@@ -24,7 +24,7 @@ const handleCourseCount=async()=>{
 }
 const handleEnrollmentsCount=async()=>{
   try {
-   const res= await axios.get("http://localhost:5000/admin/enrollment",{withCredentials:true}) ;
+   const res= await axios.get(`${API_URL}/admin/enrollment`,{withCredentials:true}) ;
    setEnrollmentsCount(res.data.length)
   } catch (error) {
     console.log(error)

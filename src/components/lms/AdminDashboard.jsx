@@ -13,12 +13,12 @@ const AdminDashboard = () => {
   const [activeTab,setActiveTab]=useState("overview");
   
 const [profileData, setProfileData] = useState({});
- 
+      const API_URL="https://darshantechinnvations.shop";
 
   const handleProfileData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/user/profile",
+        `${API_URL}/user/profile`,
         { withCredentials: true }
       );
       setProfileData(res.data.data || {});

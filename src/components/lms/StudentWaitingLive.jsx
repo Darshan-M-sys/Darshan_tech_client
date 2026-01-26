@@ -6,12 +6,12 @@ export default function WaitingRoom() {
   const [timeLeft, setTimeLeft] = useState("");
   const [startTime, setStartTime] = useState(null);
   const nav = useNavigate();
-
+  const API_URL="https://darshantechinnvations.shop";
   // 🔹 Fetch live status once
   const fetchLiveStatus = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/live/user/live-status"
+        `${API_URL}/live/user/live-status`
       );
 
       if (res.data.isLive) {

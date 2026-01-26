@@ -4,10 +4,11 @@ import { MdDelete } from 'react-icons/md'
 
 
 const Enrollments = () => {
+  const API_URL="https://darshantechinnvations.shop";
   const [enrollments,setEnrollments]=useState([])
   const handleEnrollment= async()=>{
     try {
-      const res= await axios.get("http://localhost:5000/admin/enrollment",{withCredentials:true})
+      const res= await axios.get( `${API_URL}/admin/enrollment`,{withCredentials:true})
       setEnrollments(res.data.data|| []);
     } catch (error) {
       console.log(error)
@@ -19,7 +20,7 @@ handleEnrollment()
   const handleDeleteEnrollment= async(enrollmentId)=>{
     try {
       if(!window.confirm("Are You Sure to Delete")) return 
-       await axios.delete(`http://localhost:5000/admin/enrollment/delete/${enrollmentId}`,{withCredentials:true});
+       await axios.delete(`${API_URL}/admin/enrollment/delete/${enrollmentId}`,{withCredentials:true});
        alert("Deleted")
        handleEnrollment()
     } catch (error) {

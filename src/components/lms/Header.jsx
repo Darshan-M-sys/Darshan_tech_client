@@ -30,10 +30,10 @@ if(type==="success"){
 },[type,navigate])
 
 const [authData,setAuthData]=useState({})
-
+  const API_URL="https://darshantechinnvations.shop";
 const handleAuth=async()=>{
   try{
-  const login= await axios.get("http://localhost:5000/user/login",{withCredentials:true});
+  const login= await axios.get(`${API_URL}/user/login`,{withCredentials:true});
   setAuthData(login.data.data|| {})
   }catch(err){
     console.log(err)
@@ -52,7 +52,7 @@ const [profileData, setProfileData] = useState({});
   const handleProfileData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/user/profile",
+        `${API_URL}/user/profile`,
         { withCredentials: true }
       );
       setProfileData(res.data.data || {});
@@ -68,7 +68,7 @@ const [profileData, setProfileData] = useState({});
 const[logout,setLogout]=useState(false)
 const handleLogout=async()=>{
   try{
- const data=await axios.post("http://localhost:5000/user/logout",{},{withCredentials:true});
+ const data=await axios.post(`${API_URL}/user/logout`,{},{withCredentials:true});
  setType(data.data.type)
  setLogout(true)
   }catch(err){

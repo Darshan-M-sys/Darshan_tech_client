@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import LmsFooter from "./LMSFooter";
 
 const Login = () => {
+ const API_URL="https://darshantechinnvations.shop";
     const [msg,setMsg]=useState("")
 const [profileData, setProfileData] = useState({});
  
@@ -18,7 +19,7 @@ const [profileData, setProfileData] = useState({});
   const handleProfileData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/user/profile",
+        `${API_URL}/user/profile `,
         { withCredentials: true }
       );
       setProfileData(res.data.data || {});
@@ -48,7 +49,7 @@ const navigate= useNavigate()
         }
         setMsg("Please wait  otp is sent to email")
         setType("info")
-       const data= await axios.post("http://localhost:5000/user/forget_password",{email});
+       const data= await axios.post(`${API_URL}/user/forget_password`,{email});
         setMsg(data.data.msg)
         setType(data.data.type)
          setSuccess(data.data.success)
@@ -86,7 +87,7 @@ useEffect(()=>{
 
   const handleLogin=async()=>{
     try{
-     const login= await axios.post("http://localhost:5000/user/login",{email,password},{withCredentials:true});
+     const login= await axios.post(`${API_URL}/user/login`,{email,password},{withCredentials:true});
      
     setMsg(login.data.msg)
     setType(login.data.type)

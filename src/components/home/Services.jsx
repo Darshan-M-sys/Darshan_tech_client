@@ -21,7 +21,7 @@ const Services = () => {
         <meta name="author" content="Darshan M" />
         <link
           rel="canonical"
-          href="https://www.darshantechinnovations.com/services"
+          href="https://www.darshantechinnovations.tech/services"
         />
 
         {/* OPEN GRAPH */}
@@ -36,7 +36,7 @@ const Services = () => {
         />
         <meta
           property="og:url"
-          content="https://www.darshantechinnovations.com/services"
+          content="https://www.darshantechinnovations.tech/services"
         />
         <meta property="og:type" content="website" />
 
@@ -47,7 +47,7 @@ const Services = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "DarshanTech Innovations",
-            "url": "https://www.darshantechinnovations.com",
+            "url": "https://www.darshantechinnovations.tech",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": "Services",

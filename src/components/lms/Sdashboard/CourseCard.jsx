@@ -7,9 +7,10 @@ const CourseCard = () => {
   const [loading, setLoading] = useState(true);
 
   const handleMyCourses = async () => {
+     const API_URL="https://darshantechinnvations.shop";
     try {
       const res = await axios.get(
-        "http://localhost:5000/enrollment/student",
+        `${API_URL}/enrollment/student`,
         { withCredentials: true }
       );
       setMyCourses(res.data?.data || []);

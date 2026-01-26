@@ -4,12 +4,13 @@ import { MdDelete } from "react-icons/md";
 import { FaSearch, FaUserGraduate, FaChalkboardTeacher } from "react-icons/fa";
 
 const Users = () => {
+   const API_URL="https://darshantechinnvations.shop";
   const [search,setSearch]=useState("")
   const [students,setStudents]=useState([])
   const[teachers,setTeachers]=useState([])
   const [is,setIS]=useState("student")
 const handleUsers=async()=>{
- const user= await axios.get("http://localhost:5000/admin/users",{withCredentials:true});
+ const user= await axios.get(`${API_URL}/admin/users`,{withCredentials:true});
 try {
    setStudents(user.data.data.filter((i)=>i.role==="student")|| [])
  setTeachers(user.data.data.filter((i)=>i.role==="teacher"))
@@ -27,7 +28,7 @@ handleUsers()
 const handleDelete=async(id)=>{
   try {
     if(!window.confirm("Are you sure to delete this user?")) return;
-    const deleted= await axios.delete(`http://localhost:5000/admin/users/${id}`,{withCredentials:true});
+    const deleted= await axios.delete(`${API_URL}/admin/users/${id}`,{withCredentials:true});
     if(deleted.data.success){
     handleUsers()
     }

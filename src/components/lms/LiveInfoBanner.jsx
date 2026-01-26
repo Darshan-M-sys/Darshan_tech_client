@@ -4,10 +4,10 @@ import axios from "axios";
 export default function TeacherLiveInfoPanel() {
   const [info, setInfo] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const API_URL="https://darshantechinnvations.shop";
   const fetchInfo = async () => {
     const res = await axios.get(
-      "http://localhost:5000/live/live-info",
+      `${API_URL}/live/live-info`,
       { withCredentials: true }
     );
     setInfo(res.data.data);
@@ -20,7 +20,7 @@ export default function TeacherLiveInfoPanel() {
   const showLiveInfo = async () => {
     setLoading(true);
     await axios.post(
-      "http://localhost:5000/live/info/show",
+      `${API_URL}/live/info/show`,
       {},
       { withCredentials: true }
     );
@@ -31,7 +31,7 @@ export default function TeacherLiveInfoPanel() {
   const hideLiveInfo = async () => {
     setLoading(true);
     await axios.post(
-      "http://localhost:5000/live/info/hide",
+      `${API_URL}/live/info/hide`,
       {},
       { withCredentials: true }
     );

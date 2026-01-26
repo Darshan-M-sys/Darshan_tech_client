@@ -10,6 +10,7 @@ import LmsFooter from './LMSFooter';
 import { Link } from 'react-router-dom';
 
 const Main = () => {
+  
 const platForm_For=[{
 name:"Students",description:"Build strong foundations and gain real-world skills beyond college syllabus."
 },

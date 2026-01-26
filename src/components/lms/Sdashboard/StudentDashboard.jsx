@@ -12,11 +12,11 @@ const StudentDashboard = () => {
   const [profileData, setProfileData] = useState({});
   const [myCourses, setMyCourses] = useState([]);
 
-
+     const API_URL="https://darshantechinnvations.shop";
   const handleMyCourses = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/enrollment/student",
+        `${API_URL}/enrollment/student`,
         { withCredentials: true }
       );
       setMyCourses(res.data?.data || []);
@@ -33,7 +33,7 @@ useEffect(() => {
     const handleProfileData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/user/profile",
+          `${API_URL}/user/profile`,
           { withCredentials: true }
         );
         setProfileData(res.data.data || {});

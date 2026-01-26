@@ -11,9 +11,11 @@ import LmsFooter from "./LMSFooter";
 const Courses = () => {
 const[show,setShow]=useState(false);
 const [courseData,setCourseData]=useState([])
+     const API_URL="https://darshantechinnvations.shop";
 const handleCourseData=async()=>{
+  
   try {
-    const data=await axios.get("http://localhost:5000/course");
+    const data=await axios.get(`${API_URL}/course`);
     setCourseData(data.data.data || [])
   } catch (error) {
     console.log(error)
@@ -23,7 +25,7 @@ const [singleCourse,setSingleCourse]=useState({})
 const handleSingleCourseData=async(id)=>{
   try {
     if(id){
-     const data= await axios.get(`http://localhost:5000/course/${id}`);
+     const data= await axios.get(`${API_URL}/course/${id}`);
      setSingleCourse(data.data.data || {})
      setShow(true)
     }
@@ -42,7 +44,7 @@ const[message,setMessage]=useState('')
 const handleEnrollment=async(courseId)=>{
 try {
 
-   const enrollmentData=await axios.post(`http://localhost:5000/enrollment/student/${courseId}`,{},{withCredentials:true});
+   const enrollmentData=await axios.post(`${API_URL}/enrollment/student/${courseId}`,{},{withCredentials:true});
   //  alert( enrollmentData.data.msg)
   if(enrollmentData.data.success){
    return (setMessage(enrollmentData.data.msg),setOpen(true))

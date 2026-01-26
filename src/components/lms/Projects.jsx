@@ -30,7 +30,7 @@ const Projects = () => {
       content="We build real, production-ready LMS, SaaS, and business software projects. No fake demos. Only real solutions."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.darshantechinnovations.com/training/projects" />
+    <meta property="og:url" content="https://www.darshantechinnovations.tech/training/projects" />
 
     {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
@@ -43,7 +43,7 @@ const Projects = () => {
     {/* Canonical */}
     <link
       rel="canonical"
-      href="https://www.darshantechinnovations.com/training/projects"
+      href="https://www.darshantechinnovations.tech/training/projects"
     />
   </Helmet>
   <Helmet>
@@ -53,7 +53,7 @@ const Projects = () => {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "DarshanTech Innovations",
-      "url": "https://www.darshantechinnovations.com",
+      "url": "https://www.darshantechinnovations.tech",
       "founder": {
         "@type": "Person",
         "name": "Darshan M"

@@ -5,10 +5,10 @@ import axios from "axios";
 export default function TeacherLive() {
 const apiRef = useRef(null);
   const [authData,setAuthData]=useState({})
-  
+       const API_URL="https://darshantechinnvations.shop";
   const handleAuth=async()=>{
     try{
-    const login= await axios.get("http://localhost:5000/user/login",{withCredentials:true});
+    const login= await axios.get(`${API_URL}/user/login`,{withCredentials:true});
     setAuthData(login.data.data|| {})
     }catch(err){
       console.log(err)

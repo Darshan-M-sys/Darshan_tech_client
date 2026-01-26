@@ -48,7 +48,7 @@ const handleChange = (e) => {
 
     try {
       await axios.post(
-        "http://localhost:5000/admin/course/create",
+        "https://darshantechinnvations.shop/admin/course/create",
         formData,
         {
           withCredentials: true,
@@ -78,7 +78,7 @@ Object.keys(dataToSend).forEach((key) => {
     formData.append("image", thumbnail);
     try {
       await axios.put(
-        `http://localhost:5000/admin/course/update/${updateData._id}`,
+        `https://darshantechinnvations.shop/admin/course/update/${updateData._id}`,
         formData,
         {
           withCredentials: true,
@@ -102,7 +102,7 @@ const[courseData,setCourseData]=useState([])
 const handleUsers=async()=>{
 
 try {
-   const cou= await axios.get("http://localhost:5000/admin/courses",{withCredentials:true}); 
+   const cou= await axios.get("https://darshantechinnvations.shop/admin/courses",{withCredentials:true}); 
    setCourseData(cou.data.data||[])
 
 } catch (error) {
@@ -112,7 +112,7 @@ try {
 
 const handleCourse=async(id)=>{
   if(id){
-   const cor= await axios.get(`http://localhost:5000/admin/courses/${id}`,{withCredentials:true});
+   const cor= await axios.get(`https://darshantechinnvations.shop/admin/courses/${id}`,{withCredentials:true});
 try {
 setCourses(cor.data.data || {})
 if(cor){
@@ -127,7 +127,7 @@ if(cor){
 
 
 const handleUpdateData=async(id)=>{
-   const cor= await axios.get(`http://localhost:5000/admin/courses/${id}`,{withCredentials:true});
+   const cor= await axios.get(`https://darshantechinnvations.shop/admin/courses/${id}`,{withCredentials:true});
 try {
  setUpdateData(cor.data.data||{})
   setUpdate(true)
@@ -142,7 +142,7 @@ if(cor){
 const handleDelete=async(id)=>{
   try{
     if(!window.confirm("Are you sure to delete this course?")) return;
-  const deleteProfile= await axios.delete(`http://localhost:5000/admin/course/delete/${id}`,{withCredentials:true});
+  const deleteProfile= await axios.delete(`https://darshantechinnvations.shop/admin/course/delete/${id}`,{withCredentials:true});
   if(deleteProfile.data.msg==="Course deleted successfully"){
      handleUsers()
   }
@@ -162,7 +162,7 @@ handleUsers()
 
 const handleAuth=async()=>{
   try{
-  const login= await axios.get("http://localhost:5000/user/login",{withCredentials:true});
+  const login= await axios.get("https://darshantechinnvations.shop/user/login",{withCredentials:true});
   setAuthData(login.data.data|| {})
   }catch(err){
     console.log(err)

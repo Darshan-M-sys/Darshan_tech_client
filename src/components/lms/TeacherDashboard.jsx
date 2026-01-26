@@ -14,12 +14,12 @@ const TeacherDashboard = () => {
   const[menu,setMenu]=useState(false)
 
  const [profileData, setProfileData] = useState({});
-  
+const API_URL="https://darshantechinnvations.shop";
  
    const handleProfileData = async () => {
      try {
        const res = await axios.get(
-         "http://localhost:5000/user/profile",
+         `${API_URL}/user/profile`,
          { withCredentials: true }
        );
        setProfileData(res.data.data || {});
@@ -36,7 +36,7 @@ const TeacherDashboard = () => {
 const [myStudents,setMyStudents]=useState([])
  const handleMyStudents=async()=>{
   try {
-    const res= await axios.get("http://localhost:5000/teacher/dashboard/students",{withCredentials:true});
+    const res= await axios.get(`${API_URL}/teacher/dashboard/students`,{withCredentials:true});
     setMyStudents(res.data.data || [])
   } catch (error) {
     console.log(error)
@@ -44,7 +44,7 @@ const [myStudents,setMyStudents]=useState([])
  }
   const [myCourses,setMyCourses]=useState([])
   const handleCoursesLength=async()=>{
-const res= await axios.get("http://localhost:5000/teacher/dashboard/courses",{withCredentials:true});
+const res= await axios.get(`${API_URL}/teacher/dashboard/courses`,{withCredentials:true});
     setMyCourses(res.data.data || [])
   }
   useEffect(()=>{

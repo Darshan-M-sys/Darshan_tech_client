@@ -31,7 +31,7 @@ useEffect(() => {
 
 
 
-
+const API_URL="https://darshantechinnvations.shop";
 const handleProfile=async()=>{
  try {
   setMsg("Data Is Processing Please wait..")
@@ -41,7 +41,7 @@ const handleProfile=async()=>{
   formData.append("image",file)
   formData.append("skills",skills);
   formData.append('bio',bio)
-  const responseData= await axios.post("http://localhost:5000/user/profile/create",formData,{withCredentials:true});
+  const responseData= await axios.post(`${API_URL}/user/profile/create`,formData,{withCredentials:true});
   setType(responseData.data.type)
   setMsg(responseData.data.msg)
   if(responseData.data.success){
@@ -59,7 +59,7 @@ const [profileData, setProfileData] = useState({});
   const handleProfileData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/user/profile",
+        `${API_URL}/user/profile`,
         { withCredentials: true }
       );
       setProfileData(res.data.data || {});
@@ -112,7 +112,7 @@ const [profileData, setProfileData] = useState({});
   {/* Canonical */}
   <link
     rel="canonical"
-    href="https://www.darshantechinnovations.com/training/profile/create"
+    href="https://www.darshantechinnovations.tech/training/profile/create"
   />
 </Helmet>
 <script type="application/ld+json">

@@ -4,6 +4,7 @@ import { FaBars, FaCheckCircle } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
 const CourseContent = ({ id }) => {
+   const API_URL="https://darshantechinnvations.shop";
   const [course, setCourse] = useState({});
   const [lessons, setLessons] = useState([]);
   const [activeLesson, setActiveLesson] = useState(null);
@@ -14,7 +15,7 @@ const CourseContent = ({ id }) => {
   const fetchCompletedLessons = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/course/view/completed/lessons/${id}`,
+        `${API_URL}/course/view/completed/lessons/${id}`,
         { withCredentials: true }
       );
       const completed = {};
@@ -31,7 +32,7 @@ const CourseContent = ({ id }) => {
   const fetchCourse = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/course/view/${id}`,
+        `${API_URL}/course/view/${id}`,
         { withCredentials: true }
       );
       setCourse(res.data.data || {});
@@ -44,7 +45,7 @@ const CourseContent = ({ id }) => {
   const fetchLessons = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/course/view/lesson/${id}`,
+        `${API_URL}/course/view/lesson/${id}`,
         { withCredentials: true }
       );
       setLessons(res.data.data || []);
@@ -65,7 +66,7 @@ const CourseContent = ({ id }) => {
     if (!activeLesson) return;
     try {
       await axios.post(
-        `http://localhost:5000/course/view/lessons/${id}/completed/${activeLesson._id}`,
+        `${API_URL}/course/view/lessons/${id}/completed/${activeLesson._id}`,
         {},
         { withCredentials: true }
       );

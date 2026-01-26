@@ -5,6 +5,7 @@ import { FaSearch, FaUserGraduate, FaChalkboardTeacher } from "react-icons/fa";
 
   
 const ProfileUser = () => {
+   const API_URL="https://darshantechinnvations.shop";
   const [profile,setProfile]=useState({})
   const [search,setSearch]=useState("")
   const [show,setShow]=useState(false)
@@ -12,7 +13,7 @@ const ProfileUser = () => {
   const[teachers,setTeachers]=useState([])
   const [is,setIS]=useState("student")
 const handleUsers=async()=>{
- const user= await axios.get("http://localhost:5000/admin/users/profiles",{withCredentials:true});
+ const user= await axios.get(`${API_URL}/admin/users/profiles`,{withCredentials:true});
 try {
    setStudents(user.data.data.filter((i)=>i.role==="student")|| [])
  setTeachers(user.data.data.filter((i)=>i.role==="teacher"))
@@ -22,7 +23,7 @@ try {
 }
 
 const handleProfile=async(id)=>{
-   const user= await axios.get(`http://localhost:5000/admin/users/profiles/${id}`,{withCredentials:true});
+   const user= await axios.get(`${API_URL}/admin/users/profiles/${id}`,{withCredentials:true});
 try {
 setProfile(user.data.data || {})
 if(user){
@@ -34,7 +35,7 @@ if(user){
 }
 const handleDelete=async(id)=>{
   try{
-  const deleteProfile= await axios.delete(`http://localhost:5000/admin/users/profiles/${id}`,{withCredentials:true});
+  const deleteProfile= await axios.delete(`${API_URL}/admin/users/profiles/${id}`,{withCredentials:true});
   if(deleteProfile.data.msg==="Deleted SuccessFully"){
     window.location.reload()
   }

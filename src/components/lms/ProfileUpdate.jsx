@@ -25,10 +25,10 @@ const navigate= useNavigate()
     return navigate("/training/profile")
    }
   },[success])
-
+     const API_URL="https://darshantechinnvations.shop";
   const handleProfileData=async()=>{
     try {
-       const data=await axios.get("http://localhost:5000/user/profile",{withCredentials:true})
+       const data=await axios.get(`${API_URL}/user/profile`,{withCredentials:true})
       
        setUsername(data.data.data.username  || "")
        setBio(data.data.data.bio || "")
@@ -60,7 +60,7 @@ const handleUpdate=async()=>{
   formData.append("image",file)
   formData.append("skills",skills);
   formData.append('bio',bio)
-  const responseData= await axios.put("http://localhost:5000/user/profile/update",formData,{withCredentials:true});
+  const responseData= await axios.put(`${API_URL}/user/profile/update`,formData,{withCredentials:true});
   setType(responseData.data.type)
   setMsg(responseData.data.msg)
    setSuccess(responseData.data.success)
