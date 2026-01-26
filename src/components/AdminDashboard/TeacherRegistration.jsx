@@ -12,6 +12,7 @@ const TeacherRegistration = () => {
   const [username,setUsername]=useState("");
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("")
+ const API_URL="https://darshantechinnvations.shop";
 
   const handleTeacher=async()=>{
     try {
