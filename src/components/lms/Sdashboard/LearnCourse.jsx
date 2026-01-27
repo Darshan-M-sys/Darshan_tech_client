@@ -12,7 +12,7 @@ import {
 import { useParams } from 'react-router-dom'
 import Header from '../Header'
 import CourseContent from "./CourseContent";
-import ChatContent from "./ChatContent";
+
 import NotesContent from "./NotesContent";
 import QuizContent from "./QuizContent";
 import InterviewContent from "./InterviewContent";
@@ -23,7 +23,6 @@ const LearnCourse = () => {
 
   const tabs = [
     { id: "course", label: "Course", icon: <FaBook /> },
-    { id: "chat", label: "Chat", icon: <FaComments /> },
     { id: "notes", label: "Notes", icon: <FaStickyNote /> },
     { id: "quiz", label: "Quiz", icon: <FaQuestionCircle /> },
     { id: "interview", label: "Interview", icon: <FaUserTie /> },
@@ -57,7 +56,6 @@ const LearnCourse = () => {
       {/* Tab Content */}
       <div className=" p-2 lg:p-6">
         {activeTab === "course" && <CourseContent  id={id} />}
-        {activeTab === "chat" && <ChatContent  id={id}/>}
         {activeTab === "notes" && <NotesContent id={id} />}
         {activeTab === "quiz" && <QuizContent courseId={id}  />}
         {activeTab === "interview" && <InterviewContent id={id} />}
