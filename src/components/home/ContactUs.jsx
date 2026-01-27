@@ -68,10 +68,10 @@ const ContactUs = () => {
       <Header />
 
       <section className="bg-gray-50 text-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="max-w-[300px] lg:max-w-7xl mx-auto px-1 lg:px-6 py-16">
           {/* HERO */}
           <header className="text-center mb-20">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900">
               Contact Us
             </h1>
             <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
@@ -158,7 +158,7 @@ const ContactUs = () => {
             </div>
 
             {/* CONTACT FORM */}
-            <div className="bg-white rounded-2xl shadow-md p-8">
+            <div className="bg-white  max-w-[300px] rounded-2xl shadow-md p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Send Us a Message
               </h2>

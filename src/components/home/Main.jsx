@@ -174,7 +174,7 @@ const Main = () => {
   />
 
   {/* Author */}
-  <meta name="author" content="Darshan M| DarshanTech Innovations" />
+  <meta name="author" content="Darshan M | DarshanTech Innovations" />
 
   {/* Viewport (Mobile-Friendly) */}
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -183,7 +183,7 @@ const Main = () => {
   <meta property="og:title" content="DarshanTech Innovations | Smart Software & Tech Learning" />
   <meta property="og:description" content="Professional tech training, LMS solutions, and custom software development for growing businesses." />
   <meta property="og:image" content={darshantech} />
-  <meta property="og:url" content="https://www.darshantechinnovations.com" />
+  <meta property="og:url" content="https://www.darshantechinnovations.tech" />
   <meta property="og:type" content="website" />
 
   {/* Twitter Card */}
@@ -207,7 +207,7 @@ const Main = () => {
               Smart Tech Solutions 🚀
             </span>
 
-            <h1 className="text-4xl sm:text-4xl lg:text-5xl font-extrabold
+            <h1 className="text-5xl sm:text-4xl lg:text-5xl font-extrabold
               text-gray-900 leading-tight">
               Smart Software for{" "}
               <span className="text-blue-600">Smart Business</span> &{" "}
@@ -325,13 +325,13 @@ const Main = () => {
 <h3 className="text-[15px]    lg:text-[20px] text-black  font-semibold">Learn real skills. Build real projects. Get career-ready.</h3>
 </div>
 <div className=" flex items-center justify-center ml-1 lg:ml-20 gap-5 lg:gap-10 w-full">
-                <Link to="/training/courses" data-aos="zoom-in" className="relative lg:px-2 px-1 lg:max-w-[270px]  max-w-[150px] w-full lg:px-8 pb-2 py-2  text-[12px] lg:text-lg font-semibold text-white rounded-full 
+                <Link to="/training/courses" data-aos="zoom-in" className="relative text-center lg:px-2 px-1 lg:max-w-[270px]  max-w-[150px] w-full lg:px-8 pb-2 py-2  text-[12px] lg:text-lg font-semibold text-white rounded-full 
     bg-gradient-to-r from-blue-500 to-indigo-600  
     shadow-sm shadow-blue-500/30
     transition-all duration-300 ease-out
     hover:scale-105 hover:shadow-sm lg:hover:shadow-xl hover:shadow-blue-500/50
     active:scale-95 overflow-hidden group"> Join Training Programs</Link>
-                <Link to="/training/contact"  data-aos="zoom-in-up" className="relative  lg:px-2 px-1 lg:max-w-[270px] max-w-[150px] w-full lg:px-8 pb-2 py-2  text-[12px] lg:text-lg font-semibold text-white rounded-full 
+                <Link to="/training/contact"  data-aos="zoom-in-up" className="relative  text-center lg:px-2 px-1 lg:max-w-[270px] max-w-[150px] w-full lg:px-8 pb-2 py-2  text-[12px] lg:text-lg font-semibold text-white rounded-full 
     bg-gradient-to-r from-blue-500 to-indigo-600  
     shadow-sm shadow-blue-500/30
     transition-all duration-300 ease-out
@@ -501,13 +501,13 @@ const Main = () => {
   <h2 className="bg-home ml-[5px] lg:ml-20  text-black text-[10px] lg:text-[25px] z-0 font-semibold font-arial">We design, develop, and scale smart software, websites, and systems that help businesses grow faster, work smarter, and stay ahead of competitors.</h2>
 </div>
   <div className=" flex items-center  justify-center ml-1 lg:ml-20 gap-5 lg:gap-10 w-full">
-                <Link to="/contactUs" data-aos="zoom-in" className="relative lg:px-2 px-1 lg:max-w-[270px]  max-w-[150px] w-full lg:px-8 pb-2 py-2  text-[12px] lg:text-lg font-semibold text-white rounded-full 
+                <Link to="/contactUs" data-aos="zoom-in" className="relative text-center lg:px-2 px-1 lg:max-w-[270px]  max-w-[150px] w-full lg:px-8 pb-2 py-2  text-[12px] lg:text-lg font-semibold text-white rounded-full 
     bg-gradient-to-r from-blue-500 to-indigo-600  
     shadow-sm shadow-blue-500/30
     transition-all duration-300 ease-out
     hover:scale-105 hover:shadow-sm lg:hover:shadow-xl hover:shadow-blue-500/50
     active:scale-95 overflow-hidden group"> Get Business Solutions</Link>
-                <Link to="/solutions"  data-aos="zoom-in-up" className="relative  lg:px-2 px-1 lg:max-w-[270px] max-w-[150px] w-full lg:px-8 pb-2 py-2  text-[12px] lg:text-lg font-semibold text-white rounded-full 
+                <Link to="/solutions"  data-aos="zoom-in-up" className="relative  text-center lg:px-2 px-1 lg:max-w-[270px] max-w-[150px] w-full lg:px-8 pb-2 py-2  text-[12px] lg:text-lg font-semibold text-white rounded-full 
     bg-gradient-to-r from-blue-500 to-indigo-600  
     shadow-sm shadow-blue-500/30
     transition-all duration-300 ease-out

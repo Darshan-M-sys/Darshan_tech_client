@@ -52,14 +52,14 @@ const Home = () => {
 
    <>
     <section className="bg-gray-50 text-gray-800">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-[300px] lg:max-w-7xl lg:mx-auto  px-1 lg:px-6 py-16">
 
         {/* HERO */}
-        <header className="text-center mb-20">
+        <header className=" text-center w-[300px] lg:w-full mb-20">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
             Contact Us
           </h1>
-          <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="mt-6 text-lg text-gray-600 max-w-2xl lg:mx-auto">
             Have a project idea, need technical training, or looking for a
             reliable development partner? Get in touch with{" "}
             <span className="font-semibold text-indigo-600">
@@ -73,8 +73,8 @@ const Home = () => {
         <section className="grid md:grid-cols-2 gap-12 items-start">
 
           {/* CONTACT INFO */}
-          <div className="bg-white rounded-2xl shadow-md p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="bg-white w-[320px] lg:w-full  mx-auto rounded-2xl shadow-md py-4 p-2 lg:p-8">
+            <h2 className="text-2xl text-center font-bold text-gray-900 mb-6">
               Get In Touch
             </h2>
 
@@ -150,7 +150,7 @@ const Home = () => {
           </div>
 
           {/* CONTACT FORM */}
-          <div className="bg-white rounded-2xl shadow-md p-8">
+          <div className="bg-white w-full  mx-auto rounded-2xl shadow-md p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Send Us a Message
             </h2>
