@@ -66,7 +66,7 @@ const LmsFooter = () => {
             <li>
               📧 Email: 
               <a
-                href="mailto:support@darshantechinnovations.com"
+                href="mailto:darshantechinnvations.official@gmail.com"
                 className="hover:text-white ml-1"
               >
               darshantechinnovations.official@gmail.com
@@ -79,7 +79,7 @@ const LmsFooter = () => {
           {/* SOCIAL LINKS */}
           <div className="flex space-x-4 mt-4 text-sm">
             <a
-              href="https://www.linkedin.com/company/darshantech"
+              href="https://www.linkedin.com/company/darshantech-innovations"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white transition p-2 rounded-full bg-gray-500 text-xl"
@@ -87,7 +87,7 @@ const LmsFooter = () => {
              <FaLinkedin className=" transition-all duration-300 hover:text-blue-500"/>
             </a>
             <a
-              href="https://www.linkedin.com/company/darshantech"
+              href="https://www.instagram.com/darshantechinnovations_2026/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white transition p-2 rounded-full bg-gray-500 text-xl"
@@ -95,7 +95,7 @@ const LmsFooter = () => {
            <FaInstagram className=" transition-all duration-300 hover:text-pink-800"/>
             </a>
             <a
-              href="https://www.linkedin.com/company/darshantech"
+              href="https://www.youtube.com/@darshantechinnovations"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white transition p-2 rounded-full bg-gray-500 text-xl"
@@ -103,7 +103,7 @@ const LmsFooter = () => {
              <FaYoutube className=" transition-all duration-300 hover:text-pink-500"/>
             </a>
             <a
-              href="https://www.facebook.com/darshantechinnovations"
+              href="https://www.facebook.com/darshantechinnovations_2026/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white transition  p-2 rounded-full bg-gray-500 text-xl"

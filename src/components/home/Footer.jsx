@@ -94,10 +94,10 @@ const Footer = () => {
           </h3>
           <ul className="space-y-4 text-sm">
             <li className="flex items-center gap-3">
-              <FaEnvelope /> support@darshantech.com
+              <FaEnvelope /> darshantechinnovations.official@gmail.com
             </li>
             <li className="flex items-center gap-3">
-              <FaPhoneAlt /> +91 98765 43210
+              <FaPhoneAlt /> +91 7204221936
             </li>
             <li className="flex items-center gap-3">
               <FaMapMarkerAlt /> India

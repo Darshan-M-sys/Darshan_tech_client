@@ -114,28 +114,28 @@ const ContactUs = () => {
                 </h3>
                 <div className="flex gap-4 justify-center">
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/company/darshantech-innovations"
                     target="_blank"
                     className="text-indigo-600 text-2xl"
                   >
                     <FaLinkedin />
                   </a>
                   <a
-                    href="https://github.com"
+                    href="https://github.com/Darshan-M-sys"
                     target="_blank"
                     className="text-gray-700 text-2xl"
                   >
                     <FaGithub />
                   </a>
                   <a
-                    href="https://youtube.com"
+                    href="https://www.youtube.com/@darshantechinnovations"
                     target="_blank"
                     className="text-red-600 text-2xl"
                   >
                     <FaYoutube />
                   </a>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/darshantechinnovations_2026/"
                     target="_blank"
                     className="text-pink-600 text-2xl"
                   >
