@@ -176,8 +176,8 @@ const ourCourses = [
 
     <main >
     
-     <section className=" min-h-[90vh] from-blue-50 via-white to-indigo-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20
+     <section className=" min-h-[100vh] lg:min-h-[90vh] from-blue-50 via-white to-indigo-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20  
           flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
 
           {/* TEXT CONTENT */}
@@ -187,7 +187,7 @@ const ourCourses = [
               Smart Tech Skills 🚀
             </span>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold
+            <h1 className="text-4xl sm:text-4xl lg:text-5xl font-extrabold
               text-gray-900 leading-tight">
               Learn Industry-Ready Skills.{" "}
               <span className="text-blue-600">Build Real Projects</span> &{" "}
@@ -230,7 +230,7 @@ const ourCourses = [
       </section>
 
     <div>
-      <h1 className="text-3xl text-center md:text-4xl font-bold text-blue-400 mb-5">
+      <h1 className="text-3xl text-center md:text-4xl font-bold text-gray-900 mb-5">
         Who Is This Platform For?
       </h1>
       <div className="flex flex-col md:flex-row justify-center items-center  gap-10  mx-5 lg:mx-2">

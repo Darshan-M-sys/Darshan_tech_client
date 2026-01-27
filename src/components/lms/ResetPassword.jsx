@@ -48,17 +48,17 @@ const data = await axios.post(`${API_URL}/user/reset_password`,{email:state.emai
  <h1 className='text-black font-semibold text-center text-xl'>
 Reset Password
  </h1>
- <div className="flex flex-col gap-10" >
+ <div className="flex flex-col max-w-[300px] gap-10" >
   <div>
  <label className="m-1" htmlFor="password1"> New Password</label>
- <div className="w-[400px] border rounded-xl flex items-center ">
+ <div className="w-[300px] border rounded-xl flex items-center ">
  <input value={password1}  onChange={(e)=>setPassword1(e.target.value)} className="w-full p-2 rounded-l-xl text-xl  focus:outline-none  border-r-none "  type={!hide?"password":"text"}  placeholder="XXXXXXXXXXX" />
  <span onClick={hide?()=>setHide(false):()=>setHide(true)} className=" px-2 border-l-[1px] py-3 cursor-pointer">{!hide?<IoEyeOff/>:<IoEye/>}</span>
  </div>
  </div>
  <div>
  <label className="m-1" htmlFor="password1">Confirm Password</label>
- <div className="w-[400px] border rounded-xl flex items-center ">
+ <div className="w-[300px] border rounded-xl flex items-center ">
  <input className="w-full p-2 rounded-l-xl text-xl  focus:outline-none  border-r-none "type={!hide1?"password":"text"}  onChange={(e)=>setPassword2(e.target.value)}   value={password2}  placeholder="XXXXXXXXXXX" />
  <span onClick={hide1?()=>setHide1(false):()=>setHide1(true)} className=" px-2   border-l-[1px] py-3">{!hide1?<IoEyeOff/>:<IoEye/>}</span>
  </div>

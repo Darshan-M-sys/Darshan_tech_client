@@ -207,7 +207,7 @@ const Main = () => {
               Smart Tech Solutions 🚀
             </span>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold
+            <h1 className="text-4xl sm:text-4xl lg:text-5xl font-extrabold
               text-gray-900 leading-tight">
               Smart Software for{" "}
               <span className="text-blue-600">Smart Business</span> &{" "}

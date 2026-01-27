@@ -139,10 +139,10 @@ return (
     <p>Profile</p>
    </div> </Link>
 
-   <div className="flex justify-center items-center gap-3 font-semibold hover:text-blue-500 transition-all duration-300 cursor-pointer">
+   <Link to="/training/dashboard" className="flex justify-center items-center gap-3 font-semibold hover:text-blue-500 transition-all duration-300 cursor-pointer">
     <p><MdOutlineDashboardCustomize/></p>
     <p>Dashboard</p>
-   </div>
+   </Link>
 
    <div onClick={handleLogout} className="flex   items-center gap-3 font-semibold hover:text-blue-500 transition-all duration-300 cursor-pointer text-red-500">
     <p><AiOutlineLogout /></p>
@@ -162,7 +162,7 @@ return (
     <Link to="/about" className="font-semibold text-sm text-black hover:text-blue-500 transition duration-300 border-animation " >About Us</Link>
     <Link to="/contactUs" className="font-semibold text-sm text-black hover:text-blue-500 transition duration-300 border-animation " >Contact US</Link>
     <Link to="/training/profile" className="font-semibold text-sm text-black hover:text-blue-500 transition duration-300 border-animation " >Profile</Link>
-    <Link to="/training/dashboard" className="font-semibold text-sm text-black hover:text-blue-500 transition duration-300 border-animation " >DashBoard</Link>
+    <Link to="/training/dashboard" className="font-semibold text-sm text-black hover:text-blue-500 transition duration-300 border-animation " >Dashboard</Link>
 
   
     </nav>
