@@ -187,7 +187,7 @@ const ourCourses = [
               Smart Tech Skills 🚀
             </span>
 
-            <h1 className="text-5xl sm:text-5xl lg:text-5xl font-extrabold
+            <h1 className="text-[40px] sm:text-5xl lg:text-5xl font-extrabold
               text-gray-900 leading-tight">
               Learn Industry-Ready Skills.{" "}
               <span className="text-blue-600">Build Real Projects</span> &{" "}
