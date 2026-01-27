@@ -7,21 +7,26 @@ export default function StudentLive() {
   const nav = useNavigate();
   const apiRef = useRef(null);
 
-
+  // ✅ Student info from localStorage (set during registration)
   const email = localStorage.getItem("liveEmail");
   const name = localStorage.getItem("liveName");
 
   const [ready, setReady] = useState(false);
-  const API_URL="https://darshantechinnvations.shop";
-  // 🔒 Permission check ONCE
+  const [roomName, setRoomName] = useState("");
+  const [jwtToken, setJwtToken] = useState("");
+
+  const API_URL = "https://darshantechinnvations.shop";
+
+  // 🔒 Permission check once
   useEffect(() => {
-    if (!email) {
+    if (!email || !name) {
       nav("/register");
       return;
     }
 
-    const check = async () => {
+    const checkAccess = async () => {
       try {
+        // Check if user is allowed
         const res = await axios.post(
           `${API_URL}/live/user/can-join`,
           { email }
@@ -32,23 +37,43 @@ export default function StudentLive() {
           return;
         }
 
+        // ✅ Get current live status & room
+        const liveRes = await axios.get(`${API_URL}/live/status`);
+        if (!liveRes.data.isLive) {
+          nav("/waiting");
+          return;
+        }
+
+        setRoomName(liveRes.data.roomName);
+
+        // ✅ Request student JWT from backend
+        const jwtRes = await axios.post(`${API_URL}/live/jwt/student`, {
+          name,
+          email,
+        });
+
+        setJwtToken(jwtRes.data.jwt);
         setReady(true);
-      } catch {
+      } catch (err) {
+        console.error(err);
         nav("/waiting");
       }
     };
 
-    check();
-  }, []);
+    checkAccess();
+  }, [email, name, nav]);
 
-  // 🔁 Background live check (NO rerender)
+  // 🔁 Background live check every 10 seconds
   useEffect(() => {
     if (!ready) return;
 
     const interval = setInterval(async () => {
-      const res = await axios.get(`${API_URL}/live/status`);
-
-      if (!res.data.isLive) {
+      try {
+        const res = await axios.get(`${API_URL}/live/status`);
+        if (!res.data.isLive) {
+          window.location.href = "/waiting";
+        }
+      } catch {
         window.location.href = "/waiting";
       }
     }, 10000);
@@ -64,30 +89,21 @@ export default function StudentLive() {
     );
   }
 
-  // 🚫 Prevent remount
-
-
   return (
     <div className="h-screen w-screen">
       <JitsiMeeting
         domain="meet.jit.si"
-        roomName="Darshan_Tech_Innovations_LMS_Skills"
+        roomName={roomName || "Darshan_LMS_Live"}
+        jwt={jwtToken}
         userInfo={{
           displayName: name || "Student",
         }}
         configOverwrite={{
           startWithAudioMuted: true,
           startWithVideoMuted: true,
-
           disableModeratorIndicator: true,
           disableAudioLevels: true,
-
-          // 🚫 STUDENT TOOLBAR
-          toolbarButtons: [
-            "chat",
-            "raisehand",
-            "participants-pane"
-          ],
+          toolbarButtons: ["chat", "raisehand", "participants-pane"],
         }}
         interfaceConfigOverwrite={{
           DISABLE_JOIN_LEAVE_NOTIFICATIONS: true,
@@ -95,7 +111,7 @@ export default function StudentLive() {
         onApiReady={(api) => {
           apiRef.current = api;
 
-          // 🔒 FORCE MUTE (even if student hacks)
+          // 🔒 Force mute (student cannot unmute)
           api.addEventListener("audioMuteStatusChanged", (e) => {
             if (!e.muted) api.executeCommand("toggleAudio");
           });

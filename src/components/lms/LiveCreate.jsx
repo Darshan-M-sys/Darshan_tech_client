@@ -121,7 +121,7 @@ import { Link } from "react-router-dom";
         <div className="flex justify-between">
         <h2 className="text-xl font-bold mb-4">Teacher Control Panel</h2>
         {status==="LIVE" &&
-<Link to="http://localhost:3000/hosting/teacher/live" target="_block" className="text-blue-500 font-semibold">Go Live</Link>
+<Link to="https://www.darshantechinnovations.tech/hosting/teacher/live" target="_block" className="text-blue-500 font-semibold">Go Live</Link>
 }
 </div>
         <input
