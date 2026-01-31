@@ -10,7 +10,7 @@ const InterviewContent = ({id}) => {
   const fetchInterviews = async () => {
     try {
       const res = await axios.get(
-        `${API_URL}/${id}`,
+        `${API_URL}/interview/${id}`,
         { withCredentials: true }
       );
       setInterviews(res.data.data || []);
