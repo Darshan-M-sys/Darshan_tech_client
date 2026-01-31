@@ -110,31 +110,35 @@ const Home = () => {
               </h3>
               <div className="flex gap-4 justify-center">
                 <a
-                  href=""
+                 href="https://www.linkedin.com/company/darshantech-innovations"
+                    target="_blank"
                   className="text-indigo-600 font-bold text-2xl hover:underline"
                 >
                  <FaLinkedin/>
                 </a>
                 <a
-                  href="#"
+                 href="https://github.com/Darshan-M-sys"
+                    target="_blank"
                   className="text-gray-600 font-bold text-2xl hover:underline"
                 >
                <FaGithub/>
                 </a>
                 <a
-                  href="#"
+                 href="https://www.youtube.com/@darshantechinnovations"
+                    target="_blank"
                   className="text-pink-600 font-bold text-2xl hover:underline"
                 >
                 <FaYoutube/>
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/darshantechinnovations_2026/"
+                    target="_blank"
                   className="text-pink-600 font-bold text-2xl hover:underline"
                 >
                 <FaInstagram/>
                 </a>
                 <a
-                  href="tel://91+ 7204221936"
+                  href="tel:91+7204221936"
                   className="text-green-600 font-bold text-2xl hover:underline"
                 >
                 <FaWhatsapp/>
