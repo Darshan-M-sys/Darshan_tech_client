@@ -144,9 +144,9 @@ return (
     <p>Dashboard</p>
    </Link>
 
-   <div onClick={handleLogout} className="flex   items-center gap-3 font-semibold hover:text-blue-500 transition-all duration-300 cursor-pointer text-red-500">
-    <p><AiOutlineLogout /></p>
-    <p >Logout</p>
+   <div className="flex   items-center gap-3 font-semibold hover:text-blue-500 transition-all duration-300 cursor-pointer text-red-500">
+    <p  onClick={handleLogout} className='flex justify-center gap-2' ><AiOutlineLogout /> Logout</p>
+ 
    </div>
    </div>
 }
