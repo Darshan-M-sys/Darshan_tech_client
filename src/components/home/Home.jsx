@@ -144,7 +144,7 @@ const Home = () => {
                 <FaWhatsapp/>
                 </a>
                 <a
-                  href="mail://darshantechinnovations.official@gmail.com"
+                  href="mail:darshantechinnovations.official@gmail.com"
                   className="text-black-600 font-bold text-2xl hover:underline"
                 >
                 <CiMail/>
